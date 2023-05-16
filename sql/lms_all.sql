@@ -1,0 +1,471 @@
+--------------------------------------------------------
+--  파일이 생성됨 - 수요일-12월-14-2022   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table LMS_ADMIN
+--------------------------------------------------------
+
+  CREATE TABLE "SCOTT"."LMS_ADMIN" 
+   (	"USERID" VARCHAR2(20 BYTE), 
+	"PWD" VARCHAR2(20 BYTE), 
+	"PHONE" VARCHAR2(50 BYTE), 
+	"EMAIL" VARCHAR2(50 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table LMS_ANSWER
+--------------------------------------------------------
+
+  CREATE TABLE "SCOTT"."LMS_ANSWER" 
+   (	"LMS_AID" NUMBER, 
+	"LMS_NUM" VARCHAR2(20 BYTE), 
+	"LMS_TNUM" VARCHAR2(20 BYTE), 
+	"LMS_ANUM" VARCHAR2(1000 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table LMS_HISTORY
+--------------------------------------------------------
+
+  CREATE TABLE "SCOTT"."LMS_HISTORY" 
+   (	"LMS_NUM" NUMBER, 
+	"USERID" VARCHAR2(20 BYTE), 
+	"LVL_CODE" NUMBER, 
+	"LMS_START" TIMESTAMP (6), 
+	"LMS_END" TIMESTAMP (6)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table LMS_LECTURE
+--------------------------------------------------------
+
+  CREATE TABLE "SCOTT"."LMS_LECTURE" 
+   (	"LMS_NUM" VARCHAR2(20 BYTE), 
+	"LVL_CODE" NUMBER, 
+	"FNAME" VARCHAR2(100 BYTE), 
+	"DURATION" VARCHAR2(100 BYTE), 
+	"DESCRIPTION" VARCHAR2(100 BYTE), 
+	"VNAME" VARCHAR2(100 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table LMS_STATUS
+--------------------------------------------------------
+
+  CREATE TABLE "SCOTT"."LMS_STATUS" 
+   (	"USERID" VARCHAR2(20 BYTE), 
+	"LVL_CODE" NUMBER, 
+	"LMS_NUM" VARCHAR2(20 BYTE), 
+	"TEST_DATE" TIMESTAMP (6), 
+	"LMS_TNUM" VARCHAR2(20 BYTE), 
+	"LMS_QID" NUMBER, 
+	"LMS_QUESTION" VARCHAR2(1000 BYTE), 
+	"LMS_AID" NUMBER, 
+	"LMS_ANUM" VARCHAR2(1000 BYTE), 
+	"T_FEEDBACK" VARCHAR2(1000 BYTE), 
+	"LMS_SCORING" NUMBER, 
+	"PASS" CHAR(2 BYTE) DEFAULT '0'
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table LMS_SUBJECT
+--------------------------------------------------------
+
+  CREATE TABLE "SCOTT"."LMS_SUBJECT" 
+   (	"LVL_CODE" NUMBER, 
+	"SUBJECT_NAME" VARCHAR2(100 BYTE), 
+	"SUBJECT_DESCRIPTION" VARCHAR2(1000 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table LMS_TEST
+--------------------------------------------------------
+
+  CREATE TABLE "SCOTT"."LMS_TEST" 
+   (	"LMS_QID" NUMBER, 
+	"LMS_NUM" VARCHAR2(20 BYTE), 
+	"LMS_TNUM" VARCHAR2(20 BYTE), 
+	"LMS_QUESTION" VARCHAR2(1000 BYTE), 
+	"USERID" VARCHAR2(20 BYTE), 
+	"LVL_CODE" NUMBER, 
+	"TEST_DATE" TIMESTAMP (6)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table LMS_USER
+--------------------------------------------------------
+
+  CREATE TABLE "SCOTT"."LMS_USER" 
+   (	"USERID" VARCHAR2(20 BYTE), 
+	"PWD" VARCHAR2(20 BYTE), 
+	"PHONE" VARCHAR2(50 BYTE), 
+	"EMAIL" VARCHAR2(50 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+REM INSERTING into SCOTT.LMS_ADMIN
+SET DEFINE OFF;
+Insert into SCOTT.LMS_ADMIN (USERID,PWD,PHONE,EMAIL) values ('smith','1111','111-1111-1111','smith@naver.com');
+REM INSERTING into SCOTT.LMS_ANSWER
+SET DEFINE OFF;
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (1,'1.1','1','데이터 유형을 반드시 입력해야한다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (2,'1.1','1','동적방식으로 입력되는 언어이다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (3,'1.1','1','파이썬은 정적방식 입력으로 변화 할 것이다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (4,'1.1','1','상대적으로 초보자가 배우기 어려운 언어다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (5,'1.1','2','답');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (6,'1.1','3','코드를 빨리 읽고 이해하는 것에 도움을 준다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (7,'1.1','3','type hint에 위배되는 상황에는 파이썬이 실행되지 않는다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (8,'1.1','3','type hint는 틀린 실행문을 수정해준다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (9,'1.1','3','파이썬 실행시에 반드시 설치해야하는 시스템이다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (10,'1.2','1','올해 파이썬이 자바를 이겼다');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (11,'1.2','1','작년에 파이썬이 C#을 이겼다');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (12,'1.2','1','재작년에 파이썬이 PHP를 앞질럿다');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (13,'1.2','1','올해 파이썬이 C++을 이겼다');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (14,'1.2','2','답');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (15,'1.2','3','파이썬 언어가 한국어와 닮아 있다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (16,'1.2','3','파이썬이 여러 활용법을 갖고 있다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (17,'1.2','3','파이썬은 멀티목적 수행이가능한 언어이다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (18,'1.2','3','파이썬은 방대한 커뮤니티 규모를 가지고 있다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (19,'1.3','1','3.10보다 최대 10~60% 빠르다');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (20,'1.3','1','tomllib라는 모듈을 제공하지 않는다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (21,'1.3','1','예외 노트라는 것을 가지고 있다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (22,'1.3','1','더 나은 에러메시지를 갖고있다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (23,'1.3','2','답');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (24,'1.3','3','파이썬을 15배 더 빠르게 하고자하는 프로젝트다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (25,'1.3','3','파이썬의 창시자 Guido van Rossum이 독단적으로 진행한다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (26,'1.3','3','연간 2.5배 성능향상을 계획한다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (27,'1.3','3','순수 파이썬 코드를 사용하는 도구의 경우 성능향상이 뛰어나다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (28,'2.1','1','2022년 10월 01일');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (29,'2.1','1','2022년 04월 29일');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (30,'2.1','1','2021년 11월 11일');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (31,'2.1','1','2021년 07월 05일');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (32,'2.1','2','답');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (33,'2.1','3','90세 노인만큼 빠르고 안정적으로 걷습니다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (34,'2.1','3','원형에 손가락이 다섯개라니!');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (35,'2.1','3','너무 아름다운 외형과 목소리!');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (36,'2.1','3','보스턴 다이내믹스 문닫을 걱정은 안해도되겠네.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (37,'2.2','1','주차에 도움을 준다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (38,'2.2','1','차량유지보수에 도움을 준다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (39,'2.2','1','차량 속도에 가속을 준다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (40,'2.2','1','타이어 마모를 줄여준다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (41,'2.2','2','답');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (42,'2.2','3','사람이 간단히 조작한다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (43,'2.2','3','시스템 제어가 불가능하다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (44,'2.2','3','사람이 수동으로 제어가 불가능하다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (45,'2.2','3','강아지가 조작이 가능하다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (46,'2.3','1','개인 비서');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (47,'2.3','1','노약자돌봄');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (48,'2.3','1','대면서비스');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (49,'2.3','1','교통수단');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (50,'2.3','2','답');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (51,'2.3','3','현대');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (52,'2.3','3','테슬라');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (53,'2.3','3','영국엔지니어드아치');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (54,'2.3','3','엘지');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (55,'3.1','1','트위터');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (56,'3.1','1','페이스북');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (57,'3.1','1','인스타그램');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (58,'3.1','1','네이버');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (59,'3.1','2','답');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (60,'3.1','3','나사가 파동을 소리로 변환했다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (61,'3.1','3','나사가 블랙홀의 음향신호를 68옥타브를 높였다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (62,'3.1','3','인간이 들을 수 있는 소리로 재합성했다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (63,'3.1','3','원래주파수의 28경 8천조 배 높은소리로 제작했다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (64,'3.2','1','바람을 거슬러 올라가고 있다');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (65,'3.2','1','바람이 서쪽으로 불고있다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (66,'3.2','1','바람이 120노트로 불고있다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (67,'3.2','1','2007년에 촬영된 영상이다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (68,'3.2','2','답');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (69,'3.2','3','정부, 민간, 기업의 UFO자료를 모은다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (70,'3.2','3','올 가을부터 9달동안 진행한다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (71,'3.2','3','보고서는 모두 공개될 예정이다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (72,'3.2','3','보고서 열람시 비용이 청구된다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (73,'3.3','1','물');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (74,'3.3','1','토끼');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (75,'3.3','1','절구');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (76,'3.3','1','방앗간');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (77,'3.3','2','답');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (78,'3.3','3','달의 남반구에 물분자가 100~410ppm 정도로 존재한다');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (79,'3.3','3','콜드트랩이 과거 추정치의 두배가 넘는 4만제곱km에 걸쳐 형성되어있다.');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (80,'3.3','3','토끼가 찹쌀떡을 만들고 있었다');
+Insert into SCOTT.LMS_ANSWER (LMS_AID,LMS_NUM,LMS_TNUM,LMS_ANUM) values (81,'3.3','3','콜드트랩안에 실제얼음이 있는지와 물에 접근, 추출하는 방법은 입증하지 못했다.');
+REM INSERTING into SCOTT.LMS_HISTORY
+SET DEFINE OFF;
+REM INSERTING into SCOTT.LMS_LECTURE
+SET DEFINE OFF;
+Insert into SCOTT.LMS_LECTURE (LMS_NUM,LVL_CODE,FNAME,DURATION,DESCRIPTION,VNAME) values ('1.1',1,'https://www.youtube.com/embed/fJeGAx27-vU','05:59','아직도 파이썬을 이렇게 쓰고 있다고?','파이썬의 사용법');
+Insert into SCOTT.LMS_LECTURE (LMS_NUM,LVL_CODE,FNAME,DURATION,DESCRIPTION,VNAME) values ('1.2',1,'https://www.youtube.com/embed/1-O4O0z4tRQ','05:14','인기폭풍 파이썬의 비결.5분안에 정리해줌','파이썬의 비결');
+Insert into SCOTT.LMS_LECTURE (LMS_NUM,LVL_CODE,FNAME,DURATION,DESCRIPTION,VNAME) values ('1.3',1,'https://www.youtube.com/embed/hgmz0NJugEc','04:12','얼마나 빨라진거야? 파이썬 업그레이드 3분 정리','파이썬의 변화');
+Insert into SCOTT.LMS_LECTURE (LMS_NUM,LVL_CODE,FNAME,DURATION,DESCRIPTION,VNAME) values ('2.1',2,'https://www.youtube.com/embed/Awex5glrD7M','04:03','테슬라 로봇 등장에 대해 싸해진 관객 반응','테슬라 로봇');
+Insert into SCOTT.LMS_LECTURE (LMS_NUM,LVL_CODE,FNAME,DURATION,DESCRIPTION,VNAME) values ('2.2',2,'https://youtu.be/KU0Z7Am7zmg','02:42','저렇게 작고 얇은 로봇이 통째로 차를 들어버린다','주차 로봇');
+Insert into SCOTT.LMS_LECTURE (LMS_NUM,LVL_CODE,FNAME,DURATION,DESCRIPTION,VNAME) values ('2.3',2,'https://youtu.be/Zf_w8jAndJM','01:56','3년 뒤엔 2800만 원 로봇, 인간형 로봇 시대 성큼','인간형 로봇');
+Insert into SCOTT.LMS_LECTURE (LMS_NUM,LVL_CODE,FNAME,DURATION,DESCRIPTION,VNAME) values ('3.1',3,'https://youtu.be/ctoYGzc_9hQ','01:47','NASA, 블랙홀 소리 포착…오싹 혹은 황홀','나사가 발표한 블랙홀');
+Insert into SCOTT.LMS_LECTURE (LMS_NUM,LVL_CODE,FNAME,DURATION,DESCRIPTION,VNAME) values ('3.2',3,'https://youtu.be/-iA15AXcirU','01.39','외계인 진짜 있을까…미국 나사도 UFO 조사 나선다 ','나사가 조사한 외계인');
+Insert into SCOTT.LMS_LECTURE (LMS_NUM,LVL_CODE,FNAME,DURATION,DESCRIPTION,VNAME) values ('3.3',3,'https://youtu.be/64WfbHW7M_Y','02:07','달에 꽤 많은 이것 발견"...나사가 발표한 새 연구 결과','나사가 달에서 발견한것');
+REM INSERTING into SCOTT.LMS_STATUS
+SET DEFINE OFF;
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chl11wq12',1,'1.1',to_timestamp('22/12/12 16:13:20.746000000','RR/MM/DD HH24:MI:SSXFF'),'3',3,'type hint 에 관한 설명으로 옳은것은?',6,'코드를 빨리 읽고 이해하는 것에 도움을 준다.','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chl11wq12',1,'1.2',to_timestamp('22/12/12 14:38:59.236000000','RR/MM/DD HH24:MI:SSXFF'),'1',4,'스택오버플로우 개발자설문에서 있었던 일중에  틀린것은?',10,'올해 파이썬이 자바를 이겼다','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chl11wq12',1,'1.2',to_timestamp('22/12/12 14:38:59.250000000','RR/MM/DD HH24:MI:SSXFF'),'2',5,'파이썬이 가장 많이 활용되는 3가지를 서술하세요',14,'1','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chl11wq12',1,'1.2',to_timestamp('22/12/12 14:38:59.264000000','RR/MM/DD HH24:MI:SSXFF'),'3',6,'영상에서 설명하지 않은 파이썬이 인기가 많은 이유는?',15,'파이썬 언어가 한국어와 닮아 있다.','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chu',1,'1.1',to_timestamp('22/12/12 14:39:33.038000000','RR/MM/DD HH24:MI:SSXFF'),'1',1,'파이썬의 설명으로 옳은것은?',2,'동적방식으로 입력되는 언어이다.','피드백ahsdhabsd',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chu',1,'1.1',to_timestamp('22/12/12 14:39:33.053000000','RR/MM/DD HH24:MI:SSXFF'),'2',2,'강사의 이름을 입력하세요',5,'니꼴라스','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chu',1,'1.1',to_timestamp('22/12/12 14:39:33.068000000','RR/MM/DD HH24:MI:SSXFF'),'3',3,'type hint 에 관한 설명으로 옳은것은?',6,'코드를 빨리 읽고 이해하는 것에 도움을 준다.','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chl11wq12',1,'1.3',to_timestamp('22/12/12 15:36:24.774000000','RR/MM/DD HH24:MI:SSXFF'),'1',7,'파이썬 3.11에 대한 설명으로 틀린것은?',20,'tomllib라는 모듈을 제공하지 않는다.','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chl11wq12',1,'1.3',to_timestamp('22/12/12 15:36:24.788000000','RR/MM/DD HH24:MI:SSXFF'),'2',8,'Cpython이 하는 일을 서술하세요',23,'2','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chl11wq12',1,'1.3',to_timestamp('22/12/12 15:36:24.803000000','RR/MM/DD HH24:MI:SSXFF'),'3',9,'Faster Cpython Project 에 대하여 옳은것은 ?',25,'파이썬의 창시자 Guido van Rossum이 독단적으로 진행한다.','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('Gogo',1,'1.1',to_timestamp('22/12/12 14:51:57.610000000','RR/MM/DD HH24:MI:SSXFF'),'1',1,'파이썬의 설명으로 옳은것은?',4,'상대적으로 초보자가 배우기 어려운 언어다.','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('Gogo',1,'1.1',to_timestamp('22/12/12 14:51:57.627000000','RR/MM/DD HH24:MI:SSXFF'),'2',2,'강사의 이름을 입력하세요',5,'11','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('Gogo',1,'1.1',to_timestamp('22/12/12 14:51:57.642000000','RR/MM/DD HH24:MI:SSXFF'),'3',3,'type hint 에 관한 설명으로 옳은것은?',8,'type hint는 틀린 실행문을 수정해준다.','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('Gogo',1,'1.2',to_timestamp('22/12/12 15:34:18.077000000','RR/MM/DD HH24:MI:SSXFF'),'3',6,'영상에서 설명하지 않은 파이썬이 인기가 많은 이유는?',17,'파이썬은 멀티목적 수행이가능한 언어이다.','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('vbvns11',1,'1.1',to_timestamp('22/12/12 15:24:34.585000000','RR/MM/DD HH24:MI:SSXFF'),'1',1,'파이썬의 설명으로 옳은것은?',3,'파이썬은 정적방식 입력으로 변화 할 것이다.','피드백이에요',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('vbvns11',1,'1.1',to_timestamp('22/12/12 15:24:34.599000000','RR/MM/DD HH24:MI:SSXFF'),'2',2,'강사의 이름을 입력하세요',5,'무적의 공격대','피드백피드백이에요',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('vbvns11',1,'1.1',to_timestamp('22/12/12 15:24:34.613000000','RR/MM/DD HH24:MI:SSXFF'),'3',3,'type hint 에 관한 설명으로 옳은것은?',6,'코드를 빨리 읽고 이해하는 것에 도움을 준다.','피드백피드백이에요',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('vbvns11',1,'1.2',to_timestamp('22/12/12 15:26:54.851000000','RR/MM/DD HH24:MI:SSXFF'),'1',4,'스택오버플로우 개발자설문에서 있었던 일중에  틀린것은?',12,'재작년에 파이썬이 PHP를 앞질럿다',null,null,'0 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('vbvns11',1,'1.2',to_timestamp('22/12/12 15:26:54.866000000','RR/MM/DD HH24:MI:SSXFF'),'2',5,'파이썬이 가장 많이 활용되는 3가지를 서술하세요',14,'답안입니다',null,null,'0 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('vbvns11',1,'1.2',to_timestamp('22/12/12 15:26:54.880000000','RR/MM/DD HH24:MI:SSXFF'),'3',6,'영상에서 설명하지 않은 파이썬이 인기가 많은 이유는?',15,'파이썬 언어가 한국어와 닮아 있다.',null,null,'0 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('Gogo',1,'1.2',to_timestamp('22/12/12 15:34:18.048000000','RR/MM/DD HH24:MI:SSXFF'),'1',4,'스택오버플로우 개발자설문에서 있었던 일중에  틀린것은?',10,'올해 파이썬이 자바를 이겼다','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('Gogo',1,'1.2',to_timestamp('22/12/12 15:34:18.062000000','RR/MM/DD HH24:MI:SSXFF'),'2',5,'파이썬이 가장 많이 활용되는 3가지를 서술하세요',14,'답테스트','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('Gogo',1,'1.3',to_timestamp('22/12/12 16:14:46.123000000','RR/MM/DD HH24:MI:SSXFF'),'1',7,'파이썬 3.11에 대한 설명으로 틀린것은?',21,'예외 노트라는 것을 가지고 있다.','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('Gogo',1,'1.3',to_timestamp('22/12/12 16:14:46.137000000','RR/MM/DD HH24:MI:SSXFF'),'2',8,'Cpython이 하는 일을 서술하세요',23,'12','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('Gogo',1,'1.3',to_timestamp('22/12/12 16:14:46.150000000','RR/MM/DD HH24:MI:SSXFF'),'3',9,'Faster Cpython Project 에 대하여 옳은것은 ?',26,'연간 2.5배 성능향상을 계획한다.','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('Gogo',2,'2.1',to_timestamp('22/12/12 16:19:39.959000000','RR/MM/DD HH24:MI:SSXFF'),'1',10,'테슬라 AI 데이가 개최된 날짜는?',29,'2022년 04월 29일',null,null,'0 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('Gogo',2,'2.1',to_timestamp('22/12/12 16:19:39.973000000','RR/MM/DD HH24:MI:SSXFF'),'2',11,'테슬라의 인공지는 로봇 이름은?',32,'123',null,null,'0 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('Gogo',2,'2.1',to_timestamp('22/12/12 16:19:39.986000000','RR/MM/DD HH24:MI:SSXFF'),'3',12,'테슬라로봇이 받지 않은 평가는?',34,'원형에 손가락이 다섯개라니!',null,null,'0 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chu',1,'1.2',to_timestamp('22/12/12 16:31:37.640000000','RR/MM/DD HH24:MI:SSXFF'),'1',4,'스택오버플로우 개발자설문에서 있었던 일중에  틀린것은?',12,'재작년에 파이썬이 PHP를 앞질럿다','피드백ahsdhabsd',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chu',1,'1.2',to_timestamp('22/12/12 16:31:37.654000000','RR/MM/DD HH24:MI:SSXFF'),'2',5,'파이썬이 가장 많이 활용되는 3가지를 서술하세요',14,'1111','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chl11wq12',1,'1.1',to_timestamp('22/12/12 16:13:20.716000000','RR/MM/DD HH24:MI:SSXFF'),'1',1,'파이썬의 설명으로 옳은것은?',1,'데이터 유형을 반드시 입력해야한다.','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chl11wq12',1,'1.1',to_timestamp('22/12/12 16:13:20.731000000','RR/MM/DD HH24:MI:SSXFF'),'2',2,'강사의 이름을 입력하세요',5,'1','피드백',null,'1 ');
+Insert into SCOTT.LMS_STATUS (USERID,LVL_CODE,LMS_NUM,TEST_DATE,LMS_TNUM,LMS_QID,LMS_QUESTION,LMS_AID,LMS_ANUM,T_FEEDBACK,LMS_SCORING,PASS) values ('chu',1,'1.2',to_timestamp('22/12/12 16:31:37.667000000','RR/MM/DD HH24:MI:SSXFF'),'3',6,'영상에서 설명하지 않은 파이썬이 인기가 많은 이유는?',17,'파이썬은 멀티목적 수행이가능한 언어이다.','피드백',null,'1 ');
+REM INSERTING into SCOTT.LMS_SUBJECT
+SET DEFINE OFF;
+Insert into SCOTT.LMS_SUBJECT (LVL_CODE,SUBJECT_NAME,SUBJECT_DESCRIPTION) values (1,'파이썬','흥미진진한 파이썬');
+Insert into SCOTT.LMS_SUBJECT (LVL_CODE,SUBJECT_NAME,SUBJECT_DESCRIPTION) values (2,'로봇','과거,현재,미래의 로봇');
+Insert into SCOTT.LMS_SUBJECT (LVL_CODE,SUBJECT_NAME,SUBJECT_DESCRIPTION) values (3,'나사','우리는 나사에 대해 얼마나 알까?');
+REM INSERTING into SCOTT.LMS_TEST
+SET DEFINE OFF;
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (1,'1.1','1','파이썬의 설명으로 옳은것은?',null,1,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (2,'1.1','2','강사의 이름을 입력하세요',null,1,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (3,'1.1','3','type hint 에 관한 설명으로 옳은것은?',null,1,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (4,'1.2','1','스택오버플로우 개발자설문에서 있었던 일중에  틀린것은?',null,1,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (5,'1.2','2','파이썬이 가장 많이 활용되는 3가지를 서술하세요',null,1,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (6,'1.2','3','영상에서 설명하지 않은 파이썬이 인기가 많은 이유는?',null,1,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (7,'1.3','1','파이썬 3.11에 대한 설명으로 틀린것은?',null,1,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (8,'1.3','2','Cpython이 하는 일을 서술하세요',null,1,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (9,'1.3','3','Faster Cpython Project 에 대하여 옳은것은 ?',null,1,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (10,'2.1','1','테슬라 AI 데이가 개최된 날짜는?',null,2,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (11,'2.1','2','테슬라의 인공지는 로봇 이름은?',null,2,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (12,'2.1','3','테슬라로봇이 받지 않은 평가는?',null,2,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (13,'2.2','1','영상에서 소개한 로봇이 하는 일은?',null,2,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (14,'2.2','2','영상에서 소개한 로봇의 이름은?',null,2,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (15,'2.2','3','로봇을 작동하는데 옳은것은?',null,2,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (16,'2.3','1','뉴스에서 설명한 인간형로봇을 활용하는 분야로 틀린것은?',null,2,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (17,'2.3','2','뉴스에서 어떻게 테슬라의 로봇을 평가하였나요?',null,2,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (18,'2.3','3','로봇에 뛰어든 기업중 틀린것은?',null,2,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (19,'3.1','1','나사가 포착한 블랙홀 소리는 어느 매채를 통해 공개되었나요?',null,3,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (20,'3.1','2','소리를 포착한 블랙홀은 어디에 있는것인가요?',null,3,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (21,'3.1','3','나사가 소리를 포착한 방법으로 틀린것은? ',null,3,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (22,'3.2','1','미국해군 촬영영상에 대한 설명으로 옳지 않은것은?',null,3,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (23,'3.2','2','어떤 우려로 인해 나사가 미확인 비행현상에 대한 연구에 착수했나요?',null,3,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (24,'3.2','3','나사가 진행할 연구에 관해 옳지 않은것은?',null,3,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (25,'3.3','1','나사가 달 표면에서 발견한 것으로 옳은것은?',null,3,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (26,'3.3','2','우주에서 발견한것으로 우주인이 활용할수 있는 분야는?',null,3,null);
+Insert into SCOTT.LMS_TEST (LMS_QID,LMS_NUM,LMS_TNUM,LMS_QUESTION,USERID,LVL_CODE,TEST_DATE) values (27,'3.3','3','영상에서 설명하지 않은 내용은?',null,3,null);
+REM INSERTING into SCOTT.LMS_USER
+SET DEFINE OFF;
+Insert into SCOTT.LMS_USER (USERID,PWD,PHONE,EMAIL) values ('Gogo','Asdf!234','01000010002','Gogo@test.com');
+Insert into SCOTT.LMS_USER (USERID,PWD,PHONE,EMAIL) values ('chl11wq12','7&Chlekfngks','01023884515','chl11wq12@naver.com');
+Insert into SCOTT.LMS_USER (USERID,PWD,PHONE,EMAIL) values ('meroro','Rlathwls1!','01090270848','meroro@naver.com');
+Insert into SCOTT.LMS_USER (USERID,PWD,PHONE,EMAIL) values ('vbvns11','Rlathwls1!','01011111111','dldjmfe@naver.com');
+Insert into SCOTT.LMS_USER (USERID,PWD,PHONE,EMAIL) values ('aaa','Qkrguswn!429','01066666666','test@naver.com');
+Insert into SCOTT.LMS_USER (USERID,PWD,PHONE,EMAIL) values ('chu','Chuchu429!','01023723031','chu@naver.com');
+Insert into SCOTT.LMS_USER (USERID,PWD,PHONE,EMAIL) values ('asdf1234','Qwer!234','01000010001','asdf1234@test.com');
+--------------------------------------------------------
+--  DDL for Index SYS_C007079
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SCOTT"."SYS_C007079" ON "SCOTT"."LMS_ADMIN" ("USERID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C007080
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SCOTT"."SYS_C007080" ON "SCOTT"."LMS_ADMIN" ("PHONE") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C007081
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SCOTT"."SYS_C007081" ON "SCOTT"."LMS_ADMIN" ("EMAIL") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index LMS_TEST_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SCOTT"."LMS_TEST_PK" ON "SCOTT"."LMS_TEST" ("LMS_QID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C006998
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SCOTT"."SYS_C006998" ON "SCOTT"."LMS_USER" ("USERID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C006999
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SCOTT"."SYS_C006999" ON "SCOTT"."LMS_USER" ("PHONE") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C007000
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SCOTT"."SYS_C007000" ON "SCOTT"."LMS_USER" ("EMAIL") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  Constraints for Table LMS_ADMIN
+--------------------------------------------------------
+
+  ALTER TABLE "SCOTT"."LMS_ADMIN" MODIFY ("USERID" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_ADMIN" MODIFY ("PWD" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_ADMIN" MODIFY ("PHONE" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_ADMIN" MODIFY ("EMAIL" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_ADMIN" ADD PRIMARY KEY ("USERID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "SCOTT"."LMS_ADMIN" ADD UNIQUE ("PHONE")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "SCOTT"."LMS_ADMIN" ADD UNIQUE ("EMAIL")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table LMS_ANSWER
+--------------------------------------------------------
+
+  ALTER TABLE "SCOTT"."LMS_ANSWER" MODIFY ("LMS_AID" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_ANSWER" MODIFY ("LMS_NUM" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_ANSWER" MODIFY ("LMS_TNUM" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_ANSWER" MODIFY ("LMS_ANUM" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table LMS_HISTORY
+--------------------------------------------------------
+
+  ALTER TABLE "SCOTT"."LMS_HISTORY" MODIFY ("LMS_NUM" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_HISTORY" MODIFY ("USERID" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_HISTORY" MODIFY ("LVL_CODE" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_HISTORY" MODIFY ("LMS_START" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table LMS_LECTURE
+--------------------------------------------------------
+
+  ALTER TABLE "SCOTT"."LMS_LECTURE" MODIFY ("LMS_NUM" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_LECTURE" MODIFY ("FNAME" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_LECTURE" MODIFY ("DURATION" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_LECTURE" MODIFY ("DESCRIPTION" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_LECTURE" MODIFY ("VNAME" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table LMS_STATUS
+--------------------------------------------------------
+
+  ALTER TABLE "SCOTT"."LMS_STATUS" MODIFY ("USERID" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_STATUS" MODIFY ("LVL_CODE" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_STATUS" MODIFY ("LMS_NUM" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_STATUS" MODIFY ("LMS_TNUM" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_STATUS" MODIFY ("LMS_QID" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_STATUS" MODIFY ("LMS_QUESTION" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_STATUS" MODIFY ("LMS_AID" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_STATUS" MODIFY ("LMS_ANUM" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table LMS_SUBJECT
+--------------------------------------------------------
+
+  ALTER TABLE "SCOTT"."LMS_SUBJECT" MODIFY ("LVL_CODE" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_SUBJECT" MODIFY ("SUBJECT_NAME" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_SUBJECT" MODIFY ("SUBJECT_DESCRIPTION" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table LMS_TEST
+--------------------------------------------------------
+
+  ALTER TABLE "SCOTT"."LMS_TEST" MODIFY ("LMS_QID" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_TEST" MODIFY ("LMS_NUM" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_TEST" MODIFY ("LMS_TNUM" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_TEST" MODIFY ("LMS_QUESTION" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_TEST" ADD CONSTRAINT "LMS_TEST_PK" PRIMARY KEY ("LMS_QID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table LMS_USER
+--------------------------------------------------------
+
+  ALTER TABLE "SCOTT"."LMS_USER" MODIFY ("USERID" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_USER" MODIFY ("PWD" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_USER" MODIFY ("PHONE" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_USER" MODIFY ("EMAIL" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."LMS_USER" ADD PRIMARY KEY ("USERID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "SCOTT"."LMS_USER" ADD UNIQUE ("PHONE")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "SCOTT"."LMS_USER" ADD UNIQUE ("EMAIL")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
